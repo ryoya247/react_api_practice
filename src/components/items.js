@@ -14,18 +14,23 @@ export default class Items extends Component {
   }
   render () {
     let items = this.props.items
+    console.log(items)
     const itemsList = items.map(item => {
       return (
-        <li key={item.id}>
-          <Link to={'/items/' + item.id}>{item.name}【{item.price}円】</Link>
-        </li>
+        <div key={item.id} style={{border: "solid 2px lightgray", margin: "10px 0"}}>
+          <p>
+            <Link to={'/items/' + item.id}>{item.name}</Link>
+          </p>
+          <ul style={{listStyleType: "none"}}>
+            <li>{item.description}</li>
+            <li>{item.price}円</li>
+          </ul>
+        </div>
       )
     })
     return (
       <div>
-        <ul>
-          {itemsList}
-        </ul>
+        {itemsList}
       </div>
     )
   }
