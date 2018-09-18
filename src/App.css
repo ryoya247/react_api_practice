@@ -1,0 +1,27 @@
+
+.breadCrumb ul{
+  list-style-type: none;
+  margin-left: -40px;
+}
+
+.breadCrumb li {
+  display: inline;
+}
+
+.breadCrumb li a{
+  text-decoration: none;
+}
+
+.breadCrumb li:after {
+  content: '>';
+  padding: 0 5px;
+  color: gray;
+}
+
+.breadCrumb li:last-child:after{
+  content: '';
+}
+
+.breadCrumb li a:hover {
+  text-decoration: underline;
+}

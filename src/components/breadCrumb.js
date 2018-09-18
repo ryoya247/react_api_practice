@@ -17,8 +17,8 @@ export default class BreadCrumb extends Component {
     })
 
     return (
-      <div style={{display: "inline"}}>
-        <ul style={{listStyleType: "none"}}>
+      <div className='breadCrumb'>
+        <ul>
           {listBreadCrumb}
         </ul>
       </div>
