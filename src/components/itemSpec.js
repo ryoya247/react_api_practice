@@ -13,7 +13,7 @@ export default class ItemSpec extends Component {
     })
     return (
       <div>
-        <ul style={{listStyleType: "none"}}>
+        <ul>
           {specsList}
         </ul>
       </div>

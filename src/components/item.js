@@ -20,7 +20,7 @@ export default class Item extends Component {
   }
   render () {
     let item = this.props.item
-    console.log(item)
+    // console.log(this.props)
     let specs = this.props.item.specs
     let category = this.props.item.category
     return (
@@ -29,10 +29,16 @@ export default class Item extends Component {
         <Category category={{...category}}/>
         <hr />
         <p>{item.description}</p>
-        {item.content_html}
-        <ItemSpec specs={{...specs}} />
-        <div>
-          <a href={item.amazon_url}>link</a>
+        <div dangerouslySetInnerHTML={{__html: item.content_html}}></div>
+        <div style={{border: "solid 2px lightgray", marginTop: "40px"}}>
+          <div style={{margin: "15px"}}>
+            <p style={{fontWeight: "bold"}}>{item.name}</p>
+            <div style={{backgroundColor: "orange", borderRadius: "10px"}}>
+              <p style={{textAlign: "center", fontSize: "16px", padding: "15px 0"}}><a style={{textDecoration: "none", color: "white"}} href={item.amazon_url}>Amazonで詳細を見る</a></p>
+            </div>
+            <ItemSpec specs={{...specs}} />
+
+          </div>
         </div>
       </div>
     )

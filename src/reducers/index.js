@@ -1,3 +1,3 @@
 // export const noop = (state = {}) => state
-export { default as itemsReducer } from './items'
+export { default as itemListReducer } from './itemList'
 export { default as itemReducer } from './item'

@@ -1,13 +1,13 @@
 const initialState = {
-  items: []
+  itemList: []
 }
 
 export default (state = initialState, action) => {
   switch(action.type) {
-    case 'GET_ITEMS':
+    case 'GET_ITEM_LIST':
       return {
         ...state,
-        items: action.payload.items
+        itemList: action.payload.itemList
       }
     default:
       return state

@@ -4,18 +4,18 @@ import axios from 'axios'
 
 const url = 'https://staging-api.openbox.jp/items'
 
-export default class Items extends Component {
+export default class ItemList extends Component {
   componentDidMount() {
     axios
       .get(url)
       .then((result) => {
-        this.props.mapFuncGetItems(result.data.items)
+        this.props.mapFuncGetItemList(result.data.items)
       })
   }
   render () {
-    let items = this.props.items
-    console.log(items)
-    const itemsList = items.map(item => {
+    let itemList = this.props.itemList
+    console.log('itemList', itemList)
+    const itemListForRender = itemList.map(item => {
       return (
         <div key={item.id} style={{border: "solid 2px lightgray", margin: "10px 0"}}>
           <p>
@@ -30,7 +30,7 @@ export default class Items extends Component {
     })
     return (
       <div>
-        {itemsList}
+        {itemListForRender}
       </div>
     )
   }
