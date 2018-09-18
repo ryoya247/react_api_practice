@@ -19,7 +19,7 @@ export default class ItemList extends Component {
       return (
         <div key={item.id} style={{border: "solid 2px lightgray", margin: "10px 0"}}>
           <p>
-            <Link to={'/items/' + item.id}>{item.name}</Link>
+            <Link to={`/items/${item.id}`}>{item.name}</Link>
           </p>
           <ul style={{listStyleType: "none"}}>
             <li>{item.description}</li>

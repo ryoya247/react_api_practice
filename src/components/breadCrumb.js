@@ -1,30 +1,27 @@
-import React from 'react'
+import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
 
-export default function BreadCrumb(itemName) {
-  const breadCrumbs = [
-    <li>
-      <Link to='/'>
-       TOP
-     </Link>
-    </li>
-  ]
+export default class BreadCrumb extends Component {
+  render () {
+    let breadCrumbs = this.props.breadCrumbs
+    // for (let i = 0; i < Object.keys(this.props.breadCrumbs).length; i++) {
+    //   breadCrumbs.push(this.props.breadCrumbs[i])
+    // }
 
-  if (itemName !== undefined) {
-    breadCrumbs.push((
-      <li>
-        <Link to={`/items/$(itemName)`}>
-         {itemName}
-        </Link>
-      </li>
-    ))
+    let listBreadCrumb = breadCrumbs.map(function(breadCrumb, i) {
+      return (
+        <li key={i}>
+          <Link to={`/items${breadCrumb.itemId}`}>{breadCrumb.itemName}</Link>
+        </li>
+      )
+    })
+
+    return (
+      <div style={{display: "inline"}}>
+        <ul style={{listStyleType: "none"}}>
+          {listBreadCrumb}
+        </ul>
+      </div>
+    )
   }
-
-  return (
-    <div>
-      <ul>
-        {breadCrumbs}
-      </ul>
-    </div>
-  )
 }

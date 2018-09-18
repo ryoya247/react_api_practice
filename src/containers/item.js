@@ -1,6 +1,8 @@
 import { connect } from 'react-redux'
 import Item from '../components/item'
-import * as actions from '../actions/item'
+import * as itemActions from '../actions/item'
+import * as breadCrumbActions from '../actions/breadCrumb'
+
 
 const mapStateToProps = (state) => {
   return {
@@ -10,10 +12,16 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
   mapFuncGetTargetItem(item) {
-    dispatch(actions.funcGetTargetItem(item))
+    dispatch(itemActions.funcGetTargetItem(item))
   },
   mapFuncResetItem() {
-    dispatch(actions.funcResetItem())
+    dispatch(itemActions.funcResetItem())
+  },
+  mapFuncAddBreadCrumb(itemName, itemId) {
+    dispatch(breadCrumbActions.funcAddBreadCrumb(itemName, itemId))
+  },
+  mapFuncResetBreadCrumb() {
+    dispatch(breadCrumbActions.funcResetBreadCrumb())
   }
 })
 

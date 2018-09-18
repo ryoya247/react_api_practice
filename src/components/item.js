@@ -10,17 +10,21 @@ export default class Item extends Component {
     this.props.mapFuncResetItem()
   }
   componentDidMount() {
-    let targetItemUrl = url + '/' + this.props.match.params.itemId
+    let itemId = this.props.match.params.itemId
+    let targetItemUrl = url + '/' + itemId
 
     axios
       .get(targetItemUrl)
       .then((result) => {
         this.props.mapFuncGetTargetItem(result.data)
+        this.props.mapFuncAddBreadCrumb(this.props.item.name, '/' + itemId)
       })
+  }
+  componentWillUnmount() {
+    this.props.mapFuncResetBreadCrumb()
   }
   render () {
     let item = this.props.item
-    // console.log(this.props)
     let specs = this.props.item.specs
     let category = this.props.item.category
     return (
