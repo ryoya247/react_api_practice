@@ -11,7 +11,7 @@ export default class App extends Component {
         <BreadCrumb />
         <Route exact path="/" render={() => (<Redirect to="/items"/>)} />
         <Route exact path="/items" component={ItemList}/>
-        <Route exact path={`/items/:itemId`} component={Item}/>
+        <Route exact path="/items/:itemId" component={Item}/>
       </div>
     )
   }

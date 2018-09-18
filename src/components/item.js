@@ -41,7 +41,6 @@ export default class Item extends Component {
               <p style={{textAlign: "center", fontSize: "16px", padding: "15px 0"}}><a style={{textDecoration: "none", color: "white"}} href={item.amazon_url}>Amazonで詳細を見る</a></p>
             </div>
             <ItemSpec specs={{...specs}} />
-
           </div>
         </div>
       </div>
